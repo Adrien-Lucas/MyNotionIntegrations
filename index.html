@@ -22,7 +22,7 @@ const showReviewers = () => {
   if (currentDay >= 1 && currentDay <= 5) {
     const reviewerIndex = (currentDay + 1) % numTeamMembers;
     const reviewedIndex = (currentDay + 2) % numTeamMembers;
-    document.getElementById("reviewer").innerHTML = teamMembers[reviewerIndex
+    document.getElementById("reviewer").innerHTML = teamMembers[reviewerIndex];
     document.getElementById("reviewed").innerHTML = teamMembers[reviewedIndex];
     document.getElementById("reviewer-info").style.display = "block";
   } else {
