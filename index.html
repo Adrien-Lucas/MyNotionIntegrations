@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Code Review Schedule</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    .reviewer-info {
+      display: none;
+      padding: 20px;
+      background-color: #ddd;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .reviewer-info p {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    button:hover {
+      background-color: #fff;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-  <button id="show-reviewers">Show Reviewers</button>
-  <br><br>
-  <div id="reviewer-info" style="display:none;">
-    <p><strong>Reviewer:</strong> <span id="reviewer"></span></p>
-    <p><strong>Reviewed:</strong> <span id="reviewed"></
-</span></p>
+  <div class="container">
+    <p><button id="show-reviewers">Show Reviewers </button></p>
+    <div class="reviewer-info" id="reviewer-info">
+      <p>Reviewer: <span id="reviewer"></span></p>
+      <p>Reviewed: <span id="reviewed"></span></p>
+    </div>
   </div>
 
 <script>
-const teamMembers = ["Adrien", "Julian", "Gaëtan"];
+const teamMembers = ["A", "B", "C"];
 const numTeamMembers = teamMembers.length;
 
 const showReviewers = () => {
@@ -33,4 +68,6 @@ const showReviewers = () => {
 document.getElementById("show-reviewers").addEventListener("click", showReviewers);
 </script>
 </body>
+</html>
+
 </html>
