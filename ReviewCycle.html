@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code Review Schedule</title>
+</head>
+<body>
+  <button id="show-reviewers">Show Reviewers</button>
+  <br><br>
+  <div id="reviewer-info" style="display:none;">
+    <p><strong>Reviewer:</strong> <span id="reviewer"></span></p>
+    <p><strong>Reviewed:</strong> <span id="reviewed"></
+</span></p>
+  </div>
+
+<script>
+const teamMembers = ["A", "B", "C"];
+const numTeamMembers = teamMembers.length;
+
+const showReviewers = () => {
+  const currentDate = new Date();
+  const currentDay = currentDate.getDay();
+  if (currentDay >= 1 && currentDay <= 5) {
+    const reviewerIndex = (currentDay + 1) % numTeamMembers;
+    const reviewedIndex = (currentDay + 2) % numTeamMembers;
+    document.getElementById("reviewer").innerHTML = teamMembers[reviewerIndex
+    document.getElementById("reviewed").innerHTML = teamMembers[reviewedIndex];
+    document.getElementById("reviewer-info").style.display = "block";
+  } else {
+    alert("No code review today. It's weekend!");
+  }
+};
+
+document.getElementById("show-reviewers").addEventListener("click", showReviewers);
+</script>
+</body>
+</html>
