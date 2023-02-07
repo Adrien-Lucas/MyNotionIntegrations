@@ -2,20 +2,15 @@
 <html>
 <head>
   <style>
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-    }
     .reviewer-info {
       display: none;
       padding: 20px;
       background-color: #ddd;
       border-radius: 5px;
-      text-align: center;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      text-align: left;
     }
     .reviewer-info p {
       margin: 0;
@@ -23,7 +18,9 @@
       color: #333;
     }
     button {
-      margin-top: 20px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
       padding: 10px 20px;
       background-color: #333;
       color: #fff;
@@ -39,35 +36,31 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <p><button id="show-reviewers">Show Reviewers </button></p>
-    <div class="reviewer-info" id="reviewer-info">
-      <p>Reviewer: <span id="reviewer"></span></p>
-      <p>Reviewed: <span id="reviewed"></span></p>
-    </div>
+  <p><button id="show-reviewers"> Show Reviewers </button></p>
+  <div class="reviewer-info" id="reviewer-info">
+    <p>Reviewer: <span id="reviewer"></span></p>
+    <p>Reviewed: <span id="reviewed"></span></p>
   </div>
 
-<script>
-const teamMembers = ["Adrien", "Julian", "Gaetan"];
-const numTeamMembers = teamMembers.length;
+  <script>
+    const teamMembers = ["Adrien", "Julian", "Gaëtan"];
+    const numTeamMembers = teamMembers.length;
 
-const showReviewers = () => {
-  const currentDate = new Date();
-  const currentDay = currentDate.getDay();
-  if (currentDay >= 1 && currentDay <= 5) {
-    const reviewerIndex = (currentDay + 1) % numTeamMembers;
-    const reviewedIndex = (currentDay + 2) % numTeamMembers;
-    document.getElementById("reviewer").innerHTML = teamMembers[reviewerIndex];
-    document.getElementById("reviewed").innerHTML = teamMembers[reviewedIndex];
-    document.getElementById("reviewer-info").style.display = "block";
-  } else {
-    alert("No code review today. It's weekend!");
-  }
-};
+    const showReviewers = () => {
+      const currentDate = new Date();
+      const currentDay = currentDate.getDay();
+      if (currentDay >= 1 && currentDay <= 5) {
+        const reviewerIndex = (currentDay + 1) % numTeamMembers;
+        const reviewedIndex = (currentDay + 2) % numTeamMembers;
+        document.getElementById("reviewer").innerHTML = teamMembers[reviewerIndex];
+        document.getElementById("reviewed").innerHTML = teamMembers[reviewedIndex];
+        document.getElementById("reviewer-info").style.display = "block";
+      } else {
+        alert("No code review today. It's weekend!");
+      }
+    };
 
-document.getElementById("show-reviewers").addEventListener("click", showReviewers);
-</script>
+    document.getElementById("show-reviewers").addEventListener("click", showReviewers);
+  </script>
 </body>
-</html>
-
 </html>
